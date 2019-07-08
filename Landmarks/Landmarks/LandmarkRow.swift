@@ -16,13 +16,15 @@ struct LandmarkRow : View {
         HStack {
             
             landmark.image(forSize: 50)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 0.5))
+                .shadow(radius: 10) // 阴影
             Text(verbatim: landmark.name)
             Spacer()
         }
     }
 }
 
-#if DEBUG
 struct LandmarkRow_Previews : PreviewProvider {
     static var previews: some View {
         Group {
@@ -33,4 +35,3 @@ struct LandmarkRow_Previews : PreviewProvider {
         .previewLayout(.fixed(width: 300, height: 70))
     }
 }
-#endif
